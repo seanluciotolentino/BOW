@@ -49,6 +49,10 @@ gem "bullet"
 # internal analytics
 gem 'ahoy_matey'
 
+# charting library
+gem 'chartkick'
+gem 'groupdate'
+
 group :development, :test do
 
 

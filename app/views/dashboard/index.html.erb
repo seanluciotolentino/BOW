@@ -1,0 +1,26 @@
+<h1>Stats</h1>
+
+<div>
+  Total Articles: <%= @stats.total_articles %>
+</div>
+<div>
+  Total Comments: <%= @stats.total_comments %>
+</div>
+<div>
+	Most Commented Article: <%= @most_commented.title %>(<%= @most_commented.comments.count %>)
+</div>
+<div>
+	Most Followed Article: <%= @most_followed.title %>(<%= @most_followed.comments.count %>)
+</div>
+<div>
+	<h3>Articles by Date added:</h3>
+	<%= column_chart Article.group_by_day(:created_at, format: "%b %d, %Y" ).count %>
+</div>
+<div>
+	<h3>Visits by Date:</h3>
+	<%= column_chart Visit.group_by_day(:started_at, format: "%b %d, %Y" ).count %>
+</div>
+<div>
+	<h3>Users created by Day:</h3>
+	<%= column_chart User.group_by_day(:created_at, format: "%b %d, %Y" ).count %>
+</div>
